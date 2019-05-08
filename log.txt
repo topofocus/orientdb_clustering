@@ -1,0 +1,41 @@
+## Start with empty db
+
+- open console (bin/console t)
+-- there
+  
+	 Orient::db_init ORD
+
+This sets up the time graph (1990 -> 2050 )
+
+Then import the data by calling CL::import_basel
+
+It reads data from the history file located in the data-directory
+
+Then to check:
+``` ruby
+CL::Pressure.count
+CL::Temperature.count
+CL::Humility.count
+
+# and
+
+
+> pp "1.1.2000".to_tg.nodes() via: /cl/).reload!.to_human; nil
+INFO->select  outE('cl_has_hum','cl_has_pressure','cl_has_temp').in  from #77:456 
+"<Humility[42:1902]: in: {CL::GRID=>1, CL::HAS_HUM=>1}, 
+                    out: {CL::GRID=>1}, 
+										max : 100.0, mean : 96.46, min : 94.0>",
+ "<Pressure[52:1902]: in: {CL::GRID=>1, CL::HAS_PRESSURE=>1}, 
+                     out: {CL::GRID=>1}, 
+										 max : 1030.1, mean : 1027.62, min : 1026.0>",
+ "<Temperature[33:2831]: in: {CL::HAS_TEMP=>1, CL::GRID=>1}, 
+                        out: {CL::GRID=>1}, 
+												max : 3.8, mean : 2.81, min : 1.73>"]
+
+```
+
+
+Access is possible via  "datum".to_tg.nodes( via: {class_name or pattern}  )
+Navigation through CL::GRID (prev and next-methods are implemented)
+	
+
